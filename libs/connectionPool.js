@@ -17,7 +17,7 @@ class ConnectionPool {
       // Would like to be able to send an array of replica set members..
       let connection = mongoose.createConnection(`mongodb://${config.db.host}:${config.db.port}/${tenantName}`);
 
-      let model = modelFactory(connection);
+      let model = modelFactory.createModels(connection);
       model.connection = connection;
       this.connectionPool[tenantName] = {
         conn: connection,
