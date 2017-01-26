@@ -28,7 +28,7 @@ describe('discovery-proxy', () => {
   });
 
   it('model is generated for tenant fred', (done) => {
-    let model = multiTenancy.createConnection('fred', new ModelFactory()).model;
+    let model = multiTenancy.findOrCreateNewConnection('fred', new ModelFactory()).model;
     assert(model != null, "Mode is not null");
     let carlos = new model.User({name: "carlos"});
     carlos.save((err, doc) => {
@@ -43,7 +43,7 @@ describe('discovery-proxy', () => {
   });
 
   it('model is generated for tenant wilber', (done) => {
-    let model = multiTenancy.createConnection('wilber', new ModelFactory()).model;
+    let model = multiTenancy.findOrCreateNewConnection('wilber', new ModelFactory()).model;
     assert(model != null, "Mode is not null");
     let carlos = new model.User({name: "carlos"});
     carlos.save((err, doc) => {
@@ -59,7 +59,7 @@ describe('discovery-proxy', () => {
   });
 
   it('model is generated for tenant jorge', (done) => {
-    let model = multiTenancy.createConnection('jorge', new ModelFactory()).model;
+    let model = multiTenancy.findOrCreateNewConnection('jorge', new ModelFactory()).model;
     assert(model != null, "Mode is not null");
     let carlos = new model.User({name: "carlos"});
     carlos.save((err, doc) => {
