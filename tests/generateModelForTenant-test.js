@@ -29,7 +29,7 @@ describe('discovery-proxy', () => {
 
   it('model is generated for tenant fred', (done) => {
     let model = multiTenancy.findOrCreateNewConnection('fred', new ModelFactory()).model;
-    assert(model != null, "Mode is not null");
+    assert(model != null, "Model is not null");
     let carlos = new model.User({name: "carlos"});
     carlos.save((err, doc) => {
       if(err) {

@@ -9,13 +9,12 @@ class ConnectionPool {
     };
   }
 
-
   generateModelForTenant(tenantName, modelFactory) {
     if(this.connectionPool.hasOwnProperty(tenantName)) {
       return this.connectionPool[tenantName].model;
     } else {
       // Would like to be able to send an array of replica set members..
-      let connection = mongoose.createConnection(`mongodb://${config.db.host}:${config.db.port}/${tenantName}`);
+      let connection = mongoose.createConnection(`${config.db.url}/${tenantName}`);
 
       let model = modelFactory.createModels(connection);
       model.connection = connection;
