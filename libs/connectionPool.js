@@ -10,8 +10,11 @@ class ConnectionPool {
   }
 
   generateModelForTenant(tenantName, modelFactory) {
-    if(this.connectionPool.hasOwnProperty(tenantName)) {
-      return this.connectionPool[tenantName].model;
+    let myModel = null;
+    let tenantNameExists = this.connectionPool.hasOwnProperty(tenantName);
+
+    if(tenantNameExists) {
+      myModle = this.connectionPool[tenantName].model;
     } else {
       // Would like to be able to send an array of replica set members..
       let connection = mongoose.createConnection(`${config.db.url}/${tenantName}`);
@@ -24,13 +27,16 @@ class ConnectionPool {
       };
 
       /** Clean Up **/
-      connection.on('close', () => {
-        console.log('deleting connection');
-        delete this.connectionPool[tenantName];
-      });
+      connection.on('close', () => { this._removeConnection(tenantName) });
 
-      return this.connectionPool[tenantName];
+      myModel = this.connectionPool[tenantName];
+
+      return myModel;
     }
+  }
+
+  _removeConnection(tenantName) {
+    delete this.connectionPool[tenantName];
   }
 }
 
