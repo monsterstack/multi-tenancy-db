@@ -1,0 +1,56 @@
+{
+  "name": "multi-tenancy-db",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "async": "^2.1.5",
+    "bluebird": "^3.5.0",
+    "bson": "^1.0.4",
+    "buffer-shims": "^1.0.0",
+    "config": "^1.25.1",
+    "core-util-is": "^1.0.2",
+    "debug": "^2.6.1",
+    "es6-promise": "^4.1.0",
+    "hooks-fixed": "^2.0.0",
+    "inherits": "^2.0.3",
+    "isarray": "^2.0.1",
+    "json5": "^0.5.1",
+    "kareem": "^1.2.1",
+    "lodash": "^4.17.4",
+    "mongodb": "^2.2.24",
+    "mongodb-core": "^2.1.8",
+    "mongoose": "^4.8.6",
+    "mpath": "^0.2.1",
+    "mpromise": "^0.5.5",
+    "mquery": "^2.3.0",
+    "ms": "^0.7.2",
+    "muri": "^1.2.1",
+    "process-nextick-args": "^1.0.7",
+    "readable-stream": "^2.2.3",
+    "regexp-clone": "0.0.1",
+    "require_optional": "^1.0.0",
+    "resolve-from": "^2.0.0",
+    "semver": "^5.3.0",
+    "sliced": "^1.0.1",
+    "string_decoder": "^0.10.31",
+    "util-deprecate": "^1.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "cd tests && mocha *-test.js --reporter nyan"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/monsterstack/multi-tenancy-db.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/monsterstack/multi-tenancy-db/issues"
+  },
+  "homepage": "https://github.com/monsterstack/multi-tenancy-db#readme"
+}
