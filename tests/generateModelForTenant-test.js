@@ -102,9 +102,10 @@ describe('discovery-proxy', () => {
 
   /**
    * Cleanup
-   * @returns {Void}
+   * @param done {Function}
+   * @returns {Error}
    */
-  after(() => {
-
+  after((done) => {
+    done();
   });
 });
