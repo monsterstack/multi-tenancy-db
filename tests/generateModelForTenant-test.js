@@ -28,6 +28,11 @@ class ModelFactory {
  * @returns {Void}
  */
 describe('discovery-proxy', () => {
+  /**
+   * Setup
+   * @param done {function}
+   * @returns {Error}
+   */
   before((done) => {
     done();
   });
@@ -57,7 +62,7 @@ describe('discovery-proxy', () => {
    * Test that model is generated
    * @param done {function}
    * 
-   * @returns {Void}
+   * @returns {Error}
    */
   it('model is generated for tenant wilber', (done) => {
     let model = multiTenancy.findOrCreateNewConnection('wilber', new ModelFactory()).model;
@@ -79,7 +84,7 @@ describe('discovery-proxy', () => {
    * Test that model is generated
    * @param done {function}
    * 
-   * @returns {Void}
+   * @returns {Error}
    */
   it('model is generated for tenant jorge', (done) => {
     let model = multiTenancy.findOrCreateNewConnection('jorge', new ModelFactory()).model;
