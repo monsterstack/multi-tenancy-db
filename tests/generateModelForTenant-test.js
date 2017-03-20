@@ -40,7 +40,6 @@ describe('discovery-proxy', () => {
   /**
    * Test that model is generated
    * @param done {Function}
-   * 
    * @returns {Error}
    */
   it('model is generated for tenant fred', (done) => {
