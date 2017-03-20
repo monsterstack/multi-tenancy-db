@@ -30,7 +30,7 @@ class ModelFactory {
 describe('discovery-proxy', () => {
   /**
    * Setup
-   * @param done {function}
+   * @param done {Function}
    * @returns {Error}
    */
   before((done) => {
@@ -39,9 +39,9 @@ describe('discovery-proxy', () => {
 
   /**
    * Test that model is generated
-   * @param done {function}
+   * @param done {Function}
    * 
-   * @returns {Void}
+   * @returns {Error}
    */
   it('model is generated for tenant fred', (done) => {
     let model = multiTenancy.findOrCreateNewConnection('fred', new ModelFactory()).model;
@@ -60,7 +60,7 @@ describe('discovery-proxy', () => {
 
   /**
    * Test that model is generated
-   * @param done {function}
+   * @param done {Function}
    * 
    * @returns {Error}
    */
@@ -82,7 +82,7 @@ describe('discovery-proxy', () => {
 
   /**
    * Test that model is generated
-   * @param done {function}
+   * @param done {Function}
    * 
    * @returns {Error}
    */
