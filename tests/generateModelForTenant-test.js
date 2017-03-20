@@ -3,6 +3,9 @@ const mongoose = require('mongoose');
 const assert = require('assert');
 const multiTenancy = require('../index');
 
+/**
+ * ModelFactory for Test Case
+ */
 class ModelFactory {
   constructor() {
   }
@@ -21,12 +24,20 @@ class ModelFactory {
 /**
  * Discovery model
  * Find service
+ * 
+ * @returns {Void}
  */
 describe('discovery-proxy', () => {
   before((done) => {
     done();
   });
 
+  /**
+   * Test that model is generated
+   * @param done {function}
+   * 
+   * @returns {Void}
+   */
   it('model is generated for tenant fred', (done) => {
     let model = multiTenancy.findOrCreateNewConnection('fred', new ModelFactory()).model;
     assert(model != null, "Model is not null");
@@ -42,6 +53,12 @@ describe('discovery-proxy', () => {
     });
   });
 
+  /**
+   * Test that model is generated
+   * @param done {function}
+   * 
+   * @returns {Void}
+   */
   it('model is generated for tenant wilber', (done) => {
     let model = multiTenancy.findOrCreateNewConnection('wilber', new ModelFactory()).model;
     assert(model != null, "Mode is not null");
@@ -58,6 +75,12 @@ describe('discovery-proxy', () => {
     });
   });
 
+  /**
+   * Test that model is generated
+   * @param done {function}
+   * 
+   * @returns {Void}
+   */
   it('model is generated for tenant jorge', (done) => {
     let model = multiTenancy.findOrCreateNewConnection('jorge', new ModelFactory()).model;
     assert(model != null, "Mode is not null");
@@ -73,6 +96,10 @@ describe('discovery-proxy', () => {
     });
   });
 
+  /**
+   * Cleanup
+   * @returns {Void}
+   */
   after(() => {
 
   });
