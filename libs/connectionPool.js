@@ -40,9 +40,9 @@ class ConnectionPool {
       };
 
       /** Clean Up **/
-      // connection.on('close', () => {
-      //   this._removeConnection(tenantName);
-      // });
+      connection.on('close', () => {
+        this._removeConnection(tenantName);
+      });
 
       myModel = this.connectionPool[tenantName];
 
