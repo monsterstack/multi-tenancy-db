@@ -40,12 +40,12 @@ describe('discovery-proxy', () => {
    * @param done {Function}
    * @returns {Error}
    */
-  it('model is generated for tenant fred', (done) => {
+  it('shall generate a db for tenant fred', (done) => {
     let model = multiTenancy.findOrCreateNewConnection('fred', new ModelFactory()).model;
     assert(model != null, "Model is not null");
     let carlos = new model.User({name: "carlos"});
     carlos.save((err, doc) => {
-      if(err) {
+      if (err) {
         assert(err != null, "No error occurs");
       } else {
         assert(doc != null, "Save occured");
@@ -61,7 +61,7 @@ describe('discovery-proxy', () => {
    * 
    * @returns {Error}
    */
-  it('model is generated for tenant wilber', (done) => {
+  it('shall generate a db for tenant wilber', (done) => {
     let model = multiTenancy.findOrCreateNewConnection('wilber', new ModelFactory()).model;
     assert(model != null, "Mode is not null");
     let carlos = new model.User({name: "carlos"});
@@ -83,7 +83,7 @@ describe('discovery-proxy', () => {
    * 
    * @returns {Error}
    */
-  it('model is generated for tenant jorge', (done) => {
+  it('shall generage a db for tenant jorge', (done) => {
     let model = multiTenancy.findOrCreateNewConnection('jorge', new ModelFactory()).model;
     assert(model != null, "Mode is not null");
     let carlos = new model.User({name: "carlos"});
@@ -96,6 +96,19 @@ describe('discovery-proxy', () => {
       model.connection.dropDatabase();
       done();
     });
+  });
+
+  it('shall generage multiple non-null dbs for tenant carlos', (done) => {
+    let modelOne = multiTenancy.findOrCreateNewConnection('carlos', new ModelFactory()).model;
+    let modelTwo = multiTenancy.findOrCreateNewConnection('carlos', new ModelFactory()).model;
+    let modelThree = multiTenancy.findOrCreateNewConnection('carlos', new ModelFactory()).model;
+
+    if(modelOne !== null && modelTwo != null && modelThree != null) {
+      done();
+    } else {
+      console.log(modelOne);
+      done(new Error('Expected 3 non-null dbs'));
+    }
   });
 
   /**
