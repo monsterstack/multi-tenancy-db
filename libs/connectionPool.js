@@ -27,7 +27,7 @@ class ConnectionPool {
     let tenantNameExists = this.connectionPool.hasOwnProperty(tenantName);
 
     if (tenantNameExists) {
-      myModle = this.connectionPool[tenantName].model;
+      myModel = this.connectionPool[tenantName].model;
     } else {
       // Would like to be able to send an array of replica set members..
       let connection = mongoose.createConnection(`${config.db.url}/${tenantName}`);
