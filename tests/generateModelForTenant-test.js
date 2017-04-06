@@ -7,16 +7,14 @@ const multiTenancy = require('../index');
  * ModelFactory for Test Case
  */
 class ModelFactory {
-  constructor() {
-  }
 
   createModels(connection) {
     let User = connection.model('User', mongoose.Schema({
-      name: String
+      name: String,
     }));
 
     return {
-      User: User
+      User: User,
     };
   }
 }
