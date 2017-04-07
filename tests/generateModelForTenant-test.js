@@ -106,7 +106,6 @@ describe('discovery-proxy', () => {
     if(modelOne !== null && modelTwo != null && modelThree != null) {
       done();
     } else {
-      console.log(modelOne);
       done(new Error('Expected 3 non-null dbs'));
     }
   });
